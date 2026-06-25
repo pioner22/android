@@ -1,0 +1,45 @@
+{
+  "name": "yagodka-client-android",
+  "private": true,
+  "version": "0.1.934",
+  "description": "Yagodka Android Capacitor client",
+  "license": "GPL-3.0-or-later",
+  "author": "Yagodka",
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 0.0.0.0 --port 5173",
+    "postinstall": "node scripts/postinstall.mjs",
+    "build": "vite build && node scripts/build_skins.mjs && node scripts/build_pwa.mjs",
+    "preview": "vite preview --host 0.0.0.0 --port 5173",
+    "android:sync": "npm run build && cap sync android",
+    "android:open": "npm run android:sync && cap open android",
+    "android:build:debug": "npm run android:sync && cd android && ./gradlew assembleDebug",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "node scripts/run_tests.mjs"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^8.4.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.0.2",
+    "esbuild": "^0.28.1",
+    "typescript": "^6.0.3",
+    "vite": "^8.0.16"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.4.0",
+    "@capacitor/core": "^8.4.0",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
+  },
+  "overrides": {
+    "js-yaml": "^4.2.0",
+    "picomatch": "^4.0.4",
+    "postcss": "^8.5.12",
+    "rollup": "^4.59.0",
+    "tar": "^7.5.16"
+  }
+}
